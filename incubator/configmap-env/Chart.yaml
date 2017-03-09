@@ -1,0 +1,9 @@
+name: configmap-env
+home: https://github.com/configmapresearch/charts/incubator/configmap-env
+version: 1.0.0
+description: set up a configmap with cluster wide data
+sources:
+  - https://github.com/configmapresearch/charts/incubator/configmap-env
+maintainers:
+  - name: Don Spaulding
+    email: don@configmapresearch.com
