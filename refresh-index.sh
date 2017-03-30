@@ -1,15 +1,15 @@
 #!/bin/bash
 
-REPO_DIRS=("stable" "incubator");
+REPO_DIR="stable";
 
-for repo_dir in "${REPO_DIRS[@]}"; do
-  pushd $repo_dir;
-  for fname in `ls -1d */`; do
+pushd $REPO_DIR;
+for fname in `ls -1d */`; do
     helm package $fname;
-  done;
-  popd;
-  helm repo index $repo_dir --url https://mirusresearch.github.io/charts/$repo_dir/;
-  git add $repo_dir;
 done;
+popd;
+
+helm repo index $REPO_DIR --url https://mirusresearch.github.io/charts/$REPO_DIR/;
+
+git add $REPO_DIR;
 
 git commit -m "Refresh helm indexes. $1"
